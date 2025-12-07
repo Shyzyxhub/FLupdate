@@ -1,7 +1,7 @@
 name: FLupdate
 main: com.minefit.xerxestireiron.farlandsagain.FarLandsAgain
 version: 2.6
-author: XerxesTireIron
+author: Shyzyx_
 description: Fixes the noise generator so that Far Lands generate again :D
 load: STARTUP
 api-version: 1.21

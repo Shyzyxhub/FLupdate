@@ -6,7 +6,8 @@ import com.minefit.xerxestireiron.farlandsagain.utility.ReflectionHelper;
 import org.bukkit.World;
 import org.bukkit.World.Environment;
 import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.craftbukkit.v1_21_R1.CraftWorld;
+import org.bukkit.craftbukkit.CraftWorld;
+import org.bukkit.craftbukkit.block.CraftBlock;
 
 import net.minecraft.server.level.ServerChunkCache;
 import net.minecraft.server.level.ServerLevel;
@@ -70,10 +71,44 @@ public class LoadFarlands {
             int divisor = (environment == Environment.THE_END) ? 8 : 1;
 
             NoiseBasedChunkGenerator noiseGen = (NoiseBasedChunkGenerator) this.originalGenerator;
-            WorldgenRandom.Algorithm alg = noiseGen.settings.get().getRandomSource();
+
+            // FIX 1: Utiliser .value() au lieu de .get()
+            WorldgenRandom.Algorithm alg = noiseGen.settings.value().getRandomSource();
             RandomSource randomSource = alg.newInstance(this.nmsWorld.getSeed());
-            NoiseSettings noiseSettings = noiseGen.settings.get().noiseSettings();
-            Object noiseSampler = noiseGen.climateSampler(); // type générique pour Paper 1.21.4
+            NoiseSettings noiseSettings = noiseGen.settings.value().noiseSettings();
+
+            // FIX 2: Remplacer climateSampler() par reflection
+            Object noiseSampler = null;
+            try {
+                // Essayer d'abord le champ "noiseRouter" (nom Mojang mapping)
+                Field routerField = noiseGen.getClass().getDeclaredField("noiseRouter");
+                routerField.setAccessible(true);
+                noiseSampler = routerField.get(noiseGen);
+            } catch (NoSuchFieldException e) {
+                // Sinon, chercher dynamiquement un champ qui contient BlendedNoise
+                for (Field f : noiseGen.getClass().getDeclaredFields()) {
+                    f.setAccessible(true);
+                    try {
+                        Object val = f.get(noiseGen);
+                        if (val != null) {
+                            for (Field innerF : val.getClass().getDeclaredFields()) {
+                                if (BlendedNoise.class.isAssignableFrom(innerF.getType())) {
+                                    noiseSampler = val;
+                                    break;
+                                }
+                            }
+                        }
+                        if (noiseSampler != null) break;
+                    } catch (IllegalAccessException ignored) {}
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+
+            if (noiseSampler == null) {
+                this.messages.unknownNoise(worldName, "NoiseRouter not found");
+                return;
+            }
 
             try {
                 // Recherche du BlendedNoise dans noiseSampler
