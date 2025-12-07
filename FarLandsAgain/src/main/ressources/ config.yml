@@ -1,0 +1,22 @@
+# Configuration du plugin FLupdate (anciennement FarLandsAgain)
+# Définit quels mondes auront les Far Lands activées
+# Compatible pour Overworld, Nether et End
+
+# Tous les mondes non listés ici seront ignorés
+
+worlds:
+  world:  # Nom du monde principal (Overworld)
+    enabled: true
+    # Coordonnées où Far Lands commencent
+    lowX: -12550824
+    lowZ: -12550824
+    highX: 12550824
+    highZ: 12550824
+
+  world_nether:
+    enabled: true
+    # Les autres valeurs (lowX, lowZ, highX, highZ) prendront les valeurs par défaut
+
+  world_the_end:
+    enabled: false
+    # Far Lands désactivées pour ce monde
