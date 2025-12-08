@@ -40,6 +40,49 @@
             <systemPath>${project.basedir}/libs/server-1.21.4.jar</systemPath>
         </dependency>
 
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.21.4-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bukkit.craftbukkit.boostrap</groupId>
+            <artifactId>spigot</artifactId>
+            <version>1.21.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/spigot-1.21.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.21.4-R0.1-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/paper-api-1.21.4-R0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>bukkit</artifactId>
+            <version>1.21.4-R0.1-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/bukkit-1.21.4-R0.1-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-api</artifactId>
+            <version>4.23.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/adventure-api-4.25.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-key</artifactId>
+            <version>4.23.0</version>
+            <scope>provided</scope>
+        </dependency>
         <!-- Spigot API (pour SpigotWorldConfig) -->
         <dependency>
             <groupId>org.spigotmc</groupId>
@@ -47,6 +90,15 @@
             <version>1.21.4-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.papermc.paperrclib</groupId>
+            <artifactId>paper</artifactId>
+            <version>1.21.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/paper.jar</systemPath>
+        </dependency>
+
 
         <!-- Dépendances internes du projet -->
         <dependency>

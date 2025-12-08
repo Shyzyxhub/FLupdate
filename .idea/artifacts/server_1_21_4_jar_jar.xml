@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="server-1.21.4.jar:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/server_1_21_4_jar_jar</output-path>
+    <root id="archive" name="server-1.21.4.jar.jar">
+      <element id="module-output" name="FLupdate" />
+      <element id="module-output" name="FarLandsAgain" />
+      <element id="module-output" name="Utility" />
+      <element id="module-output" name="v1_21_R1" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/v1_21_R1/libs/paper-1.21.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/v1_21_R1/libs/server-1.21.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/v1_21_R1/libs/spigot-1.21.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/v1_21_R1/libs/bukkit-1.21.4-R0.1-SNAPSHOT.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/v1_21_R1/libs/paper.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/v1_21_R1/libs/paper-api-1.21.4-R0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
