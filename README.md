@@ -1,2 +1,2 @@
 This plugin is experimental &
-Plugin don't work actually
+does not currently work.
