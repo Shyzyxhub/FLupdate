@@ -14,11 +14,6 @@
     <artifactId>v1_21_R1</artifactId>
     <packaging>jar</packaging>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>21</maven.compiler.release>
-    </properties>
-
     <dependencies>
 
         <!-- API pour compiler les classes publiques -->
@@ -29,21 +24,22 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- NMS -> JAR locaux obligatoires -->
+        <!-- Paper avec Mojang mappings (JAR local) -->
         <dependency>
             <groupId>io.papermc.paper</groupId>
-            <artifactId>paper</artifactId>
+            <artifactId>paper-server</artifactId>
             <version>1.21.4</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/libs/paper-1.21.4.jar</systemPath>
         </dependency>
 
+        <!-- Minecraft Server (JAR local) -->
         <dependency>
-            <groupId>net.minecraft</groupId>
-            <artifactId>server</artifactId>
+            <groupId>com.mojang</groupId>
+            <artifactId>minecraft-server</artifactId>
             <version>1.21.4</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/libs/server-1.21.4.jar</systemPath>
+            <systemPath>${project.basedir}/libs/minecraft_server.1.21.4.jar</systemPath>
         </dependency>
 
         <!-- Dépend du module Utility -->

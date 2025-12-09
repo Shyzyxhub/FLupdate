@@ -12,9 +12,9 @@
     <name>FLupdate</name>
 
     <modules>
-        <module>FarLandsAgain</module>
         <module>Utility</module>
-        <module>v1_21_R1</module>
+        <!-- <module>v1_21_R1</module> --> <!-- Désactivé temporairement - nécessite JAR Paper remappé -->
+        <module>FarLandsAgain</module>
     </modules>
 
     <properties>
@@ -52,33 +52,15 @@
 
     <build>
         <plugins>
-
             <!-- Compilateur Java 21 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
-                    <release>${java.version}</release>
-                    <compilerArgs>
-                        <arg>--enable-preview</arg>
-                    </compilerArgs>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
-            </plugin>
-
-            <!-- Shade uniquement sur le module parent -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.5.1</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

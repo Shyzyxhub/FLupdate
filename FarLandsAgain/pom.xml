@@ -14,11 +14,6 @@
     <artifactId>FarLandsAgain</artifactId>
     <packaging>jar</packaging>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>21</maven.compiler.release>
-    </properties>
-
     <dependencies>
 
         <!-- API → compile proprement les commandes et Event API -->
@@ -36,11 +31,14 @@
             <version>2.6</version>
         </dependency>
 
+        <!-- Désactivé temporairement - v1_21_R1 ne compile pas -->
+        <!--
         <dependency>
             <groupId>com.minefit.xerxestireiron</groupId>
             <artifactId>v1_21_R1</artifactId>
             <version>2.6</version>
         </dependency>
+        -->
 
     </dependencies>
 
@@ -52,6 +50,36 @@
                 <filtering>false</filtering>
             </resource>
         </resources>
+
+        <plugins>
+            <!-- Maven Shade Plugin pour créer un JAR avec tous les modules -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
 </project>
