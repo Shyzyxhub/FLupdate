@@ -1,7 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -11,19 +11,25 @@
         <version>2.6</version>
     </parent>
 
-    <groupId>com.minefit.xerxestireiron</groupId>
     <artifactId>v1_21_R1</artifactId>
-    <version>2.6</version>
     <packaging>jar</packaging>
 
     <properties>
-        <java.version>17</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>21</maven.compiler.release>
     </properties>
 
     <dependencies>
-        <!-- Paper server et server JAR pour NMS -->
+
+        <!-- API pour compiler les classes publiques -->
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.21.4-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- NMS -> JAR locaux obligatoires -->
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper</artifactId>
@@ -40,97 +46,12 @@
             <systemPath>${project.basedir}/libs/server-1.21.4.jar</systemPath>
         </dependency>
 
-        <dependency>
-            <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api</artifactId>
-            <version>1.21.4-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.bukkit.craftbukkit.boostrap</groupId>
-            <artifactId>spigot</artifactId>
-            <version>1.21.4</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/spigot-1.21.4.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api</artifactId>
-            <version>1.21.4-R0.1-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/paper-api-1.21.4-R0.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>bukkit</artifactId>
-            <version>1.21.4-R0.1-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/bukkit-1.21.4-R0.1-SNAPSHOT.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>net.kyori</groupId>
-            <artifactId>adventure-api</artifactId>
-            <version>4.23.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/adventure-api-4.25.0.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>net.kyori</groupId>
-            <artifactId>adventure-key</artifactId>
-            <version>4.23.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- Spigot API (pour SpigotWorldConfig) -->
-        <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.21.4-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>io.papermc.paperrclib</groupId>
-            <artifactId>paper</artifactId>
-            <version>1.21.4</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/paper.jar</systemPath>
-        </dependency>
-
-
-        <!-- Dépendances internes du projet -->
+        <!-- Dépend du module Utility -->
         <dependency>
             <groupId>com.minefit.xerxestireiron</groupId>
             <artifactId>Utility</artifactId>
             <version>2.6</version>
         </dependency>
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>papermc-public</id>
-            <url>https://repo.papermc.io/repository/maven-public/</url>
-        </repository>
-        <repository>
-            <id>spigotmc-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-        </repository>
-    </repositories>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
