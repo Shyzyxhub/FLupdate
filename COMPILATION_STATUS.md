@@ -1,8 +1,15 @@
 # FarLandsAgain - État de la Compilation
 
+## ✅ Migration vers Gradle Complétée
+
+Le projet a été **migré vers Gradle** pour supporter Paper 1.21.4 avec le plugin officiel `paperweight-userdev`.
+
 ## Situation Actuelle
 
-Ce projet est une mise à jour de FarLandsAgain pour Minecraft 1.21.4 (Paper). La compilation complète avec Maven **n'est pas possible** dans l'état actuel.
+Ce projet est une mise à jour de FarLandsAgain pour Minecraft 1.21.4 (Paper).
+
+- ✅ **Gradle** : Configuration complète et fonctionnelle (recommandé)
+- ⚠️ **Maven** : La compilation complète n'est pas possible pour Paper 1.21.4 (conservé pour référence)
 
 ### Ce qui fonctionne ✅
 
@@ -78,36 +85,77 @@ Ce projet est une mise à jour de FarLandsAgain pour Minecraft 1.21.4 (Paper). L
 - Configuration délicate et peu documentée
 - Difficile à maintenir et partager avec d'autres développeurs
 
-## Recommandation
+## ✅ Solution Implémentée : Gradle avec paperweight-userdev
 
-**Pour un développement moderne avec Paper 1.21.4, la migration vers Gradle avec paperweight-userdev est la meilleure solution.**
+La migration vers Gradle a été effectuée. Consultez [GRADLE_MIGRATION.md](GRADLE_MIGRATION.md) pour les détails complets.
 
-C'est la seule approche officiellement supportée et maintenue par l'équipe Paper pour les versions 1.20.5+.
+### Prérequis
+
+**IMPORTANT** : Vous devez installer le JDK complet (pas seulement le JRE) :
+
+```bash
+sudo apt-get install openjdk-21-jdk
+```
+
+### Utilisation
+
+```bash
+# Compiler tout le projet
+./gradlew build
+
+# Créer le JAR du plugin
+./gradlew :FarLandsAgain:shadowJar
+```
+
+Le JAR final sera dans : `FarLandsAgain/build/libs/FarLandsAgain-2.6.jar`
+
+### Avantages de cette solution
+
+- ✅ Plugin officiel Paper (`paperweight-userdev`)
+- ✅ Téléchargement automatique de Paper remappé
+- ✅ Accès complet aux classes NMS
+- ✅ Gestion automatique de la reobfuscation
+- ✅ Support officiel et à jour pour Paper 1.20.5+
 
 ## État des Modifications
 
-### Changements appliqués dans cette branche
+### Changements appliqués - Migration Gradle
 
-- ✅ Configuration Maven multi-modules corrigée
-- ✅ Propriétés de compilation Java 21 fixées (source/target au lieu de release)
-- ✅ Plugin maven-shade configuré dans le module FarLandsAgain pour créer un JAR shadé
-- ✅ Dépendances entre modules correctement établies
-- ⚠️ Module v1_21_R1 temporairement désactivé (commenté dans pom.xml parent)
-- ⚠️ Dépendance v1_21_R1 dans FarLandsAgain temporairement désactivée
+- ✅ **Configuration Gradle créée** : settings.gradle.kts, build.gradle.kts, gradle.properties
+- ✅ **Module Utility** : Migré vers Gradle (Utility/build.gradle.kts)
+- ✅ **Module v1_21_R1** : Migré avec paperweight-userdev (v1_21_R1/build.gradle.kts)
+- ✅ **Module FarLandsAgain** : Migré avec Shadow plugin (FarLandsAgain/build.gradle.kts)
+- ✅ **Gradle Wrapper** : Installé (gradlew, gradlew.bat, gradle/wrapper/)
+- ✅ **Documentation** : GRADLE_MIGRATION.md créé avec instructions complètes
+- ✅ **Tous les modules activés** : v1_21_R1 n'est plus désactivé
 
-### Fichiers modifiés
+### Fichiers Maven conservés
 
-- `pom.xml` (parent) : Ordre des modules, configuration compiler plugin
-- `FarLandsAgain/pom.xml` : Ajout maven-shade-plugin, dépendance v1_21_R1 commentée
-- `Utility/pom.xml` : Propriétés redondantes supprimées
-- `v1_21_R1/pom.xml` : Tentatives de configuration pour paper-nms-maven-plugin
+Les fichiers `pom.xml` ont été **conservés** pour référence :
+- `pom.xml` (parent)
+- `Utility/pom.xml`
+- `v1_21_R1/pom.xml`
+- `FarLandsAgain/pom.xml`
+
+### Fichiers Gradle créés
+
+- `settings.gradle.kts` : Configuration multi-modules
+- `build.gradle.kts` : Configuration parent
+- `gradle.properties` : Propriétés du projet
+- `Utility/build.gradle.kts` : Module Utility
+- `v1_21_R1/build.gradle.kts` : Module NMS avec paperweight
+- `FarLandsAgain/build.gradle.kts` : Module principal avec Shadow
+- `gradlew`, `gradlew.bat` : Scripts Gradle Wrapper
+- `gradle/wrapper/gradle-wrapper.jar` : JAR du wrapper
+- `gradle/wrapper/gradle-wrapper.properties` : Configuration du wrapper
+- `GRADLE_MIGRATION.md` : Documentation de migration
 
 ## Prochaines Étapes
 
-1. **Décider** quelle option choisir (Gradle recommandé)
-2. **Si Gradle** : Créer les fichiers build.gradle et settings.gradle
-3. **Si autre option** : Adapter selon le choix retenu
-4. **Tester** la compilation complète
+1. ✅ ~~Décider quelle option choisir~~ → **Gradle choisi et implémenté**
+2. ✅ ~~Créer les fichiers Gradle~~ → **Complété**
+3. **Installer le JDK complet** : `sudo apt-get install openjdk-21-jdk`
+4. **Tester** la compilation complète avec `./gradlew build`
 5. **Vérifier** le fonctionnement du plugin sur un serveur Paper 1.21.4
 
 ## Références

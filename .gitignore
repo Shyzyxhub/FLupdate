@@ -1,7 +1,18 @@
+# Maven
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+
+# Gradle
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Local JARs (too large for git)
+**/libs/*.jar
+
+# Kotlin
 .kotlin
 
 ### IntelliJ IDEA ###
