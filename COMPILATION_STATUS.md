@@ -163,6 +163,9 @@ Les fichiers `pom.xml` ont été **conservés** pour référence :
 - [Paper NMS Maven Plugin (tiers)](https://github.com/Alvinn8/paper-nms-maven-plugin)
 - [PaperMC Documentation Officielle](https://docs.papermc.io/paper/dev/)
 - [Projet Original FarLandsAgain](https://github.com/OtakuMegane/FarLandsAgain) (archivé, supporte jusqu'à 1.18)
+- [Far Lands Wiki](https://minecraft.fandom.com/wiki/Far_Lands)
 
+## Historique des Builds
 
-[LogBuild](LOGBUILD/log1)
+- [LogBuild 1 - Erreur ArrayIndexOutOfBoundsException](LOGBUILD/log1)
+- [LogBuild 2 - Fix Version NMS](LOGBUILD/log2_fix_nms_version.md)

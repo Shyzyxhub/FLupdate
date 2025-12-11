@@ -25,6 +25,13 @@ public class FarLandsAgain extends JavaPlugin implements Listener {
     private HashMap<String, ManageFarLands> manageWorlds;
     private final ServerVersion serverVersion = new ServerVersion(this);
 
+    /**
+     * Retourne la version NMS du serveur.
+     */
+    public ServerVersion getServerVersion() {
+        return this.serverVersion;
+    }
+
     // Versions NMS compatibles
     private final List<String> compatibleVersions = Arrays.asList(
             "v1_12_R1", "v1_14_R1", "v1_15_R1", "v1_16_R1",

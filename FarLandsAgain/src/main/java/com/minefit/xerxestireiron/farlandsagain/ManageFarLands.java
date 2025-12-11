@@ -20,7 +20,10 @@ public class ManageFarLands {
         ConfigurationSection worldConfig = this.plugin.getConfig()
                 .getConfigurationSection("worlds." + this.world.getName());
 
-        switch (this.plugin.version) {
+        // Utilise la version NMS détectée par ServerVersion au lieu du package name
+        String nmsVersion = this.plugin.getServerVersion().getNMSVersion();
+
+        switch (nmsVersion) {
             case "v1_21_R1": // <-- support ajouté pour Paper 1.21.4
                 this.LF21R1 = new com.minefit.xerxestireiron.farlandsagain.v1_21_R1.LoadFarlands(
                         this.world, worldConfig, this.plugin.isPaper(), this.plugin.getName());
@@ -32,7 +35,10 @@ public class ManageFarLands {
      * Restaure les générateurs originaux lors du disable.
      */
     public void restoreGenerator() {
-        switch (this.plugin.version) {
+        // Utilise la version NMS détectée par ServerVersion au lieu du package name
+        String nmsVersion = this.plugin.getServerVersion().getNMSVersion();
+
+        switch (nmsVersion) {
             case "v1_21_R1": // <-- support ajouté pour Paper 1.21.4
                 if (LF21R1 != null) LF21R1.restoreGenerator();
                 break;
