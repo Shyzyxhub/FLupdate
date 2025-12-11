@@ -17,9 +17,6 @@ tasks {
 
         // Exclure les signatures
         exclude("META-INF/*.SF", "META-INF/*.DSA", "META-INF/*.RSA")
-
-        // Inclure plugin.yml et config.yml
-        from(sourceSets.main.get().resources)
     }
 
     build {
