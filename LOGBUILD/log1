@@ -1,0 +1,438 @@
+Benjamin G
+benjamingcda
+En ligne
+
+Shyzyx
+
+ — 14:29
+c'est bon
+[14:30:10 ERROR]: [ModernPluginLoadingStrategy] Could not load plugin 'FarLandsAgain-2.6.jar' in folder 'plugins.paper-remapped'
+org.bukkit.plugin.InvalidPluginException: Exception initializing main class `com.minefit.xerxestireiron.farlandsagain.FarLandsAgain'
+        at org.bukkit.plugin.java.PluginClassLoader.<init>(PluginClassLoader.java:106) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+        at io.papermc.paper.plugin.provider.type.spigot.SpigotPluginProvider.createInstance(SpigotPluginProvider.java:125) ~[paper-1.21.4.jar:1.21.4-232-12d8fe0]
+        at io.papermc.paper.plugin.provider.type.spigot.SpigotPluginProvider.createInstance(SpigotPluginProvider.java:35) ~[paper-1.21.4.jar:1.21.4-232-12d8fe0]
+        at
+io.papermc.paper.plugin.entrypoint.strategy.modern.ModernPluginLoadingStrategy.loadProviders(ModernPluginLoadingStrategy.java:116) ~[paper-1.21.4.jar:1.21.4-232-12d8fe0]
+        at io.papermc.paper.plugin.storage.SimpleProviderStorage.enter(SimpleProviderStorage.java:38) ~[paper-1.21.4.jar:1.21.4-232-12d8fe0]
+        at io.papermc.paper.plugin.entrypoint.LaunchEntryPointHandler.enter(LaunchEntryPointHandler.java:39) ~[paper-1.21.4.jar:1.21.4-232-12d8fe0]
+        at org.bukkit.craftbukkit.CraftServer.loadPlugins(CraftServer.java:564) ~[paper-1.21.4.jar:1.21.4-232-12d8fe0]
+        at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:277) ~[paper-1.21.4.jar:1.21.4-232-12d8fe0]
+        at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1163) ~[paper-1.21.4.jar:1.21.4-232-12d8fe0]
+        at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:310) ~[paper-1.21.4.jar:1.21.4-232-12d8fe0]
+        at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+Caused by: java.lang.reflect.InvocationTargetException
+        at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:74) ~[?:?]
+        at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+        at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+        at org.bukkit.plugin.java.PluginClassLoader.<init>(PluginClassLoader.java:98) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+        ... 10 more
+Caused by: java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+        at FarLandsAgain-2.6.jar/com.minefit.xerxestireiron.farlandsagain.ServerVersion.<init>(ServerVersion.java:24) ~[FarLandsAgain-2.6.jar:?]
+        at FarLandsAgain-2.6.jar/com.minefit.xerxestireiron.farlandsagain.FarLandsAgain.<init>(FarLandsAgain.java:26) ~[FarLandsAgain-2.6.jar:?]
+        at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+        at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+        at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+        at org.bukkit.plugin.java.PluginClassLoader.<init>(PluginClassLoader.java:98) ~[paper-api-1.21.4-R0.1-SNAPSHOT.jar:?]
+        ... 10 more
+voila
+c'est l'erreur que j'obtient
+Benjamin G — 14:32
+Envoi la dans un fichier
+Shyzyx
+
+ — 14:32
+tu l'a vue ?
+ok
+Benjamin G — 14:32
+Là il manque des lignes
+Shyzyx
+
+ — 14:33
+C:\Users\master\Desktop\Server 1.21.4 FarLands>java -Xms128M -Xmx4096M -jar paper.jar nogui
+Starting org.bukkit.craftbukkit.Main
+*** Warning, you've not updated in a while! ***
+*** Please download a new build from https://papermc.io/downloads/paper ***
+[14:32:47 INFO]: [bootstrap] Running Java 21 (Java HotSpot(TM) 64-Bit Server VM 21.0.9+7-LTS-338; Oracle Corporation null) on Windows 11 10.0 (amd64)
+[14:32:47 INFO]: [bootstrap] Loading Paper 1.21.4-232-ver/1.21.4@12d8fe0 (2025-06-09T10:15:42Z) for Minecraft 1.21.4
+Afficher plus
+logs 1.txt
+7 Ko
+c'est toute la console
+Benjamin G — 14:34
+Ok
+FarLandsAgain-2.6.jar provient effectivement d'une incompatibilité avec Paper 1.21.4, car ce plugin ancien (datant probablement d'avant 1.21) ne parse pas correctement le format de version du serveur.�Confirmation du diagnosticLe repository GitHub du plugin (OtakuMegane/FarLandsAgain) confirme qu'il vise les serveurs Spigot, mais aucune mise à jour récente n'est visible pour 1.21.x, expliquant l'échec d'initialisation lors du parsing de la version serveur.� Aucune version 2.6+ compatible Paper 1.21.4 n'existe publiquement, et l'erreur indique un tableau de version mal formé (longueur 1 au lieu d'attendu).�Solutions validéesSuppression immédiate : Retire FarLandsAgain-2.6.jar du dossier plugins pour un démarrage propre – c'est la solution la plus rapide si non essentiel.Alternatives modernes : Utilise "Farlands V2" sur Modrinth (version 1.0-SNAPSHOT, compatible récent Minecraft), optimisé pour performance et téléportation aux Far Lands (/farlands).��Mise à jour Paper : Passe à la dernière build stable (1.21.4+ recommandé), comme averti dans les logs
+https://www.perplexity.ai/search/peux-tu-verifier-d-apres-les-l-y.wxt7fvTomFOZbP4ho4oQ
+Perplexity AI
+peux-tu vérifier
+D'après les logs que tu as partagés, le probl...
+Oui, l'analyse fournie est correcte et bien diagnostiquée. L'erreur ArrayIndexOutOfBoundsException dans ServerVersion.java:24 du plugin FarLandsAgain-2.6.jar...
+peux-tu vérifier
+D'après les logs que tu as partagés, le probl...
+https://www.perplexity.ai/search/peux-tu-verifier-d-apres-les-l-y.wxt7fvTomFOZbP4ho4oQ
+Perplexity AI
+peux-tu vérifier
+D'après les logs que tu as partagés, le probl...
+Oui, l'analyse fournie est correcte et bien diagnostiquée. L'erreur ArrayIndexOutOfBoundsException dans ServerVersion.java:24 du plugin FarLandsAgain-2.6.jar...
+peux-tu vérifier
+D'après les logs que tu as partagés, le probl...
+Shyzyx
+
+ — 14:40
+Du coup
+faut faire quoi j'ai pas tout bien compris
+car la perplexity crois que le plugin c'est farlandagain pas le fork
+que j'ai crée avec toi
+faut lui expliquer je pense ou donner l'erreur a claude
+je ne sais pas ton avis
+Le fork Shyzyxhub/FLupdate (branche develop) semble privé ou non indexé publiquement, empêchant une vérification directe du code source comme ServerVersion.java ligne 24. L'erreur ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1 persiste malgré l'intention de compatibilité 1.21.4, indiquant un parsing défaillant de la version serveur (probablement Bukkit.getVersion() ou similaire retourne un format inattendu comme un split() sur un tableau de longueur 1).​​
+
+Diagnostic précis
+Le code à la ligne 24 fait typiquement parts[1] après un split() sur la chaîne de version (ex: "1.21.4" → ["1.21.4"] au lieu d'["1","21","4"]), causé par un changement API Paper 1.21.4 ou un format non standard. Cela arrive souvent avec les forks non testés sur les dernières builds Paper, où Server.getVersion() inclut des métadonnées build variant le split.​
+
+Fix rapide (code)
+Modifiez ServerVersion.java ligne ~24 :
+
+text
+String[] parts = serverVersion.split("\.");  // Force split sur "."
+if (parts.length < 3) {
+    // Fallback ou log erreur
+    major = 1; minor = 21; patch = 4;  // Hardcode pour 1.21.4
+} else {
+    major = Integer.parseInt(parts[0]);
+    minor = Integer.parseInt(parts[1]);
+    patch = Integer.parseInt(parts[2]);
+}
+Recompilez en JAR via Maven/Gradle, testez sur Paper 1.21.4. Assurez pom.xml cible paper-api:1.21.4-R0.1-SNAPSHOT.​
+
+Actions immédiates
+Debug local : Ajoutez System.out.println("Version raw: " + Bukkit.getServer().getVersion()); avant le split pour logger le format exact.
+
+Rebuild : mvn clean package après fix, déplacez le nouveau JAR.
+
+Alternative : Revenez à l'original OtakuMegane/FarLandsAgain + patch manuel, ou testez Farlands V2 (Modrinth).​
+
+Partage le code exact de ServerVersion.java ou les logs complets pour un fix ciblé ?​​
+Shyzyx
+
+ — 14:53
+j'ai corrigé l'erreur
+Benjamin G — 14:53
+Bravo
+Ça marche maintenant de ton côté
+Shyzyx
+
+ — 14:53
+oui mais non le truc c'est que mes Farland ne ce sont pas générer
+mais le plugin c'est bien load
+je push et je vais au labo
+pas le temps finalement mais c'est le corrigé de la class serverversion la soluce
+package com.minefit.xerxestireiron.farlandsagain;
+
+import java.util.List;
+import org.bukkit.Bukkit;
+/**
+
+Classe utilitaire pour déterminer la version du serveur.
+Compatible Paper 1.21.4 et versions modernes.*/
+public class ServerVersion {
+
+    private final FarLandsAgain plugin;
+    private final String nmsVersion;
+    private final String major;
+    private final String minor;
+    private final String revision;
+
+    public ServerVersion(FarLandsAgain instance) {
+        this.plugin = instance;
+
+        // Récupération du package name (peut ne plus contenir de version NMS sur Paper moderne)
+        String packageName = this.plugin.getServer().getClass().getPackage().getName();
+        String lastPart = packageName.substring(packageName.lastIndexOf(".") + 1);
+
+        // Vérifier si on a un format NMS classique (v1_21R1) ou non
+        if (lastPart.matches("v\d+\d+R\d+")) {
+            // Format classique détecté
+            this.nmsVersion = lastPart;
+            String[] vn = this.nmsVersion.split("");
+            this.major = vn[0];     // v1
+            this.minor = vn[1];     // 21
+            this.revision = vn[2];  // R1
+        } else {
+            // Paper moderne : extraire depuis Bukkit.getVersion()
+            String version = Bukkit.getVersion(); // ex: "git-Paper-232 (MC: 1.21.4)"
+            String mcVersion = extractMinecraftVersion(version);
+
+            if (mcVersion != null) {
+                String[] parts = mcVersion.split("\.");
+                this.major = parts.length > 0 ? parts[0] : "1";
+                this.minor = parts.length > 1 ? parts[1] : "21";
+                this.revision = parts.length > 2 ? parts[2] : "4";
+                this.nmsVersion = "v" + this.major + "_" + this.minor + "_R1";
+            } else {
+                // Fallback par défaut
+                this.major = "1";
+this.minor = "21";
+                this.revision = "4";
+                this.nmsVersion = "v1_21_R1";
+            }
+
+            plugin.getLogger().warning("NMS version classique non détectée. Version reconstruite: " + this.nmsVersion);
+        }
+    }
+
+    /
+
+Extrait la version Minecraft depuis une chaîne comme "git-Paper-232 (MC: 1.21.4)"*/
+  private String extractMinecraftVersion(String versionString) {
+      try {
+          int mcIndex = versionString.indexOf("MC: ");
+          if (mcIndex != -1) {
+              int start = mcIndex + 4;
+              int end = versionString.indexOf(")", start);
+              if (end != -1) {
+                  return versionString.substring(start, end);}}} catch (Exception e) {
+          plugin.getLogger().warning("Impossible d'extraire la version MC: " + e.getMessage());}
+      return null;}
+
+    /
+
+Vérifie si la version NMS est compatible avec une liste de versions supportées.*/
+  public boolean compatibleVersion(List<String> list) {
+      return list.contains(this.nmsVersion);}
+
+    public String getMajor() {
+        return this.major;
+    }
+
+    public String getMinor() {
+        return this.minor;
+    }
+
+    public String getRevision() {
+        return this.revision;
+    }
+
+    public String getNMSVersion() {
+        return this.nmsVersion;
+    }
+}
+Benjamin G — 14:58
+Tu es chez free?
+Benjamin G — 15:06
+Je t'ai push la  version corrigée avec server version
+Shyzyx
+
+ — 15:26
+Ok
+Shyzyx
+
+ — 15:26
+Yes
+Benjamin G — 15:27
+Normalement tu peux avoir le chat Mistral
+Ils sont en train de mettre la même que Claude pour l'idé
+Shyzyx
+
+ — 15:28
+Jpense que je vais demander a claude avec le peux d'essai que j'ai pour savoir qu'es ce qui ne fait pas apparaître les farland
+Benjamin G — 15:28
+Tu dois l'activer depuis ton interface utilisateur mobile
+Réessaye avec ce que j'ai push
+Shyzyx
+
+ — 15:29
+Je fais ça en rentrant mais tkt fait ce que tu a à faire je me débrouille je ne veux pas trop prendre de ton temps
+Benjamin G — 15:30
+Yes là c'est bon je bosse😁
+Shyzyx
+
+ — 15:30
+Bon travail !
+Benjamin G — 15:31
+Puisqu'il est bien c'est que c'est aussi des choses intéressantes à connaître pour moi et pour le boulot
+Shyzyx
+
+ — 15:32
+Oui !
+Shyzyx
+
+ — 16:28
+Nouvelle version faite avec claude : https://www.swisstransfer.com/d/ec9fc0fa-e440-4fe5-9b5b-2e87f655e810
+logs du serveur :
+[16:26:13] [ServerMain/INFO]: [bootstrap] Running Java 21 (Java HotSpot(TM) 64-Bit Server VM 21.0.9+7-LTS-338; Oracle Corporation null) on Windows 11 10.0 (amd64)
+[16:26:13] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.4-232-ver/1.21.4@12d8fe0 (2025-06-09T10:15:42Z) for Minecraft 1.21.4
+[16:26:13] [ServerMain/WARN]: [oshi.driver.windows.perfmon.PerfmonDisabled] Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[16:26:14] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[16:26:14] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'plugins\FarLandsAgain-2.6.jar'...
+[16:26:14] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'plugins\FarLandsAgain-2.6.jar' in 505ms.
+Afficher plus
+message.txt
+12 Ko
+dit lui ça genre mais la version swisstransfer que je t'ai envoyer et montre lui les logs quand tu aura le temps
+Benjamin G — 17:16
+Du coup, comme tu es un futur développeur prends l'habitude d'utiliser github.
+Quand tu as des erreurs ou autre tu fais un doc dans le projet et tu mets un lien dans compilation status vers le log.
+Comme ça il y a un historique des erreurs et ça évite de tourner en rond
+Shyzyx
+
+ — 17:18
+jsuis entrain de le reglé
+Benjamin G — 17:18
+Car l'ia repart de zéro quasiment à chaque fois.
+Shyzyx
+
+ — 17:18
+ah...
+Benjamin G — 17:19
+Du coup elle comprends tout ce qui a été fait depuis le début avec l'historique
+Je te fais un exemple et je push
+﻿
+Shyzyx
+_shyzyx_
+He/il
+
+
+
+💻 ֎𝐃é𝐯𝐞𝐥𝐨𝐩𝐩𝐞𝐮𝐫  𝐝é𝐛𝐮𝐭𝐚𝐧𝐭
+𝐈𝐧𝐭𝐞𝐥𝐢𝐣𝐢/𝐣𝐚𝐯𝐚/𝐦𝐚𝐯𝐞𝐧/𝐩𝐚𝐩𝐞𝐫/𝐧𝐦𝐬
+𝓕𝓻𝓮𝓷𝓬𝓱 🍞​
+Youtube : Shyzyx
+Twitch : Shyzyx
+[16:26:13] [ServerMain/INFO]: [bootstrap] Running Java 21 (Java HotSpot(TM) 64-Bit Server VM 21.0.9+7-LTS-338; Oracle Corporation null) on Windows 11 10.0 (amd64)
+[16:26:13] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.4-232-ver/1.21.4@12d8fe0 (2025-06-09T10:15:42Z) for Minecraft 1.21.4
+[16:26:13] [ServerMain/WARN]: [oshi.driver.windows.perfmon.PerfmonDisabled] Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[16:26:14] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[16:26:14] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'plugins\FarLandsAgain-2.6.jar'...
+[16:26:14] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'plugins\FarLandsAgain-2.6.jar' in 505ms.
+[16:26:14] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
+[16:26:14] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
+ - FLupdate (2.6)
+[16:26:18] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[16:26:20] [ServerMain/INFO]: Loaded 1370 recipes
+[16:26:20] [ServerMain/INFO]: Loaded 1481 advancements
+[16:26:20] [ServerMain/INFO]: [MCTypeRegistry] Initialising converters for DataConverter...
+[16:26:20] [ServerMain/INFO]: [MCTypeRegistry] Finished initialising converters for DataConverter in 168,7ms
+[16:26:20] [Server thread/INFO]: Starting minecraft server version 1.21.4
+[16:26:20] [Server thread/INFO]: Loading properties
+[16:26:20] [Server thread/INFO]: This server is running Paper version 1.21.4-232-ver/1.21.4@12d8fe0 (2025-06-09T10:15:42Z) (Implementing API version 1.21.4-R0.1-SNAPSHOT)
+[16:26:20] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[16:26:20] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[16:26:20] [Server thread/INFO]: Using 4 threads for Netty based IO
+[16:26:21] [Server thread/INFO]: [MoonriseCommon] Paper is using 4 worker threads, 1 I/O threads
+[16:26:21] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using population gen parallelism: true
+[16:26:21] [Server thread/INFO]: Default game type: SURVIVAL
+[16:26:21] [Server thread/INFO]: Generating keypair
+[16:26:21] [Server thread/INFO]: Starting Minecraft server on *:25565
+[16:26:21] [Server thread/INFO]: Using default channel type
+[16:26:21] [Server thread/INFO]: Paper: Using Java compression from Velocity.
+[16:26:21] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[16:26:21] [Server thread/WARN]: [FLupdate] NMS version classique non détectée. Version reconstruite: v1_21_R1
+[16:26:21] [Server thread/INFO]: [FLupdate] Loading server plugin FLupdate v2.6
+[16:26:21] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[16:26:21] [Server thread/INFO]: [FLupdate] Enabling FLupdate v2.6
+[16:26:21] [Server thread/INFO]: [FLupdate] Détection de la version du serveur...
+[16:26:21] [Server thread/INFO]: [FLupdate] Package name: org.bukkit.craftbukkit
+[16:26:21] [Server thread/INFO]: [FLupdate] Version détectée: craftbukkit
+[16:26:21] [Server thread/INFO]: [FLupdate] Paper détecté: true
+[16:26:21] [Server thread/INFO]: [FLupdate] Version compatible: craftbukkit
+[16:26:21] [Server thread/INFO]: [FLupdate] Chargement des mondes existants...
+[16:26:21] [Server thread/INFO]: [FLupdate] Everything is ready to go!
+[16:26:21] [Server thread/INFO]: Preparing level "world"
+[16:26:22] [Server thread/INFO]: [FLupdate] WorldInitEvent déclenché pour: world
+[16:26:22] [Server thread/INFO]: [FLupdate] === Configuration pour world ===
+[16:26:22] [Server thread/INFO]: [FLupdate]   Config existe: true
+[16:26:22] [Server thread/INFO]: [FLupdate]   Activé: true
+[16:26:22] [Server thread/INFO]: [FLupdate] Activation de FarLands pour le monde: world
+[16:26:22] [Server thread/INFO]: [FLupdate] Configuration chargée pour world:
+[16:26:22] [Server thread/INFO]: [FLupdate]   lowX: -12550824
+[16:26:22] [Server thread/INFO]: [FLupdate]   lowZ: -12550824
+[16:26:22] [Server thread/INFO]: [FLupdate]   highX: 12550824
+[16:26:22] [Server thread/INFO]: [FLupdate]   highZ: 12550824
+[16:26:22] [Server thread/WARN]: [FLupdate] Version NMS non reconnue: craftbukkit
+[16:26:22] [Server thread/WARN]: [FLupdate] Le plugin ne sera pas actif pour ce monde.
+[16:26:22] [Server thread/INFO]: [FLupdate] FarLands activé avec succès pour: world
+[16:26:22] [Server thread/INFO]: [FLupdate] WorldInitEvent déclenché pour: world_nether
+[16:26:22] [Server thread/INFO]: [FLupdate] === Configuration pour world_nether ===
+[16:26:22] [Server thread/INFO]: [FLupdate]   Config existe: true
+[16:26:22] [Server thread/INFO]: [FLupdate]   Activé: true
+[16:26:22] [Server thread/INFO]: [FLupdate] Activation de FarLands pour le monde: world_nether
+[16:26:22] [Server thread/INFO]: [FLupdate] Configuration chargée pour world_nether:
+[16:26:22] [Server thread/INFO]: [FLupdate]   lowX: -1568853
+[16:26:22] [Server thread/INFO]: [FLupdate]   lowZ: -1568853
+[16:26:22] [Server thread/INFO]: [FLupdate]   highX: 1568853
+[16:26:22] [Server thread/INFO]: [FLupdate]   highZ: 1568853
+[16:26:22] [Server thread/WARN]: [FLupdate] Version NMS non reconnue: craftbukkit
+[16:26:22] [Server thread/WARN]: [FLupdate] Le plugin ne sera pas actif pour ce monde.
+[16:26:22] [Server thread/INFO]: [FLupdate] FarLands activé avec succès pour: world_nether
+[16:26:22] [Server thread/INFO]: [FLupdate] WorldInitEvent déclenché pour: world_the_end
+[16:26:22] [Server thread/INFO]: [FLupdate] === Configuration pour world_the_end ===
+[16:26:22] [Server thread/INFO]: [FLupdate]   Config existe: true
+[16:26:22] [Server thread/INFO]: [FLupdate]   Activé: true
+[16:26:22] [Server thread/INFO]: [FLupdate] Activation de FarLands pour le monde: world_the_end
+[16:26:22] [Server thread/INFO]: [FLupdate] Configuration chargée pour world_the_end:
+[16:26:22] [Server thread/INFO]: [FLupdate]   lowX: -12550824
+[16:26:22] [Server thread/INFO]: [FLupdate]   lowZ: -12550824
+[16:26:22] [Server thread/INFO]: [FLupdate]   highX: 12550824
+[16:26:22] [Server thread/INFO]: [FLupdate]   highZ: 12550824
+[16:26:22] [Server thread/WARN]: [FLupdate] Version NMS non reconnue: craftbukkit
+[16:26:22] [Server thread/WARN]: [FLupdate] Le plugin ne sera pas actif pour ce monde.
+[16:26:22] [Server thread/INFO]: [FLupdate] FarLands activé avec succès pour: world_the_end
+[16:26:22] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[16:26:22] [Server thread/INFO]: Preparing spawn area: 0%
+[16:26:22] [Server thread/INFO]: Preparing spawn area: 12%
+[16:26:23] [Server thread/INFO]: Time elapsed: 803 ms
+[16:26:23] [Server thread/INFO]: [FLupdate] WorldLoadEvent déclenché pour: world
+[16:26:23] [Server thread/INFO]: [FLupdate] Monde world déjà géré, ignoré.
+[16:26:23] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[16:26:23] [Server thread/INFO]: Preparing spawn area: 0%
+[16:26:23] [Server thread/INFO]: Time elapsed: 116 ms
+[16:26:23] [Server thread/INFO]: [FLupdate] WorldLoadEvent déclenché pour: world_nether
+[16:26:23] [Server thread/INFO]: [FLupdate] Monde world_nether déjà géré, ignoré.
+[16:26:23] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[16:26:23] [Server thread/INFO]: Preparing spawn area: 0%
+[16:26:23] [Server thread/INFO]: Time elapsed: 75 ms
+[16:26:23] [Server thread/INFO]: [FLupdate] WorldLoadEvent déclenché pour: world_the_end
+[16:26:23] [Server thread/INFO]: [FLupdate] Monde world_the_end déjà géré, ignoré.
+[16:26:23] [Server thread/INFO]: [spark] Starting background profiler...
+[16:26:23] [Server thread/INFO]: [spark] The async-profiler engine is not supported for your os/arch (windows11/amd64), so the built-in Java engine will be used instead.
+[16:26:23] [Server thread/INFO]: Done preparing level "world" (1.671s)
+[16:26:30] [Server thread/INFO]: Running delayed init tasks
+[16:26:30] [Server thread/INFO]: Done (17.822s)! For help, type "help"
+[16:26:30] [Server thread/WARN]: Can't keep up! Is the server overloaded? Running 6876ms or 137 ticks behind
+[16:26:50] [Server thread/INFO]: Shyzyx_ (/127.0.0.1:57150) lost connection: Disconnected
+[16:26:55] [Server thread/INFO]: Shyzyx_ (/127.0.0.1:61885) lost connection: Disconnected
+[16:27:08] [Server thread/INFO]: Stopping the server
+[16:27:08] [Server thread/INFO]: Stopping server
+[16:27:08] [Server thread/INFO]: [FLupdate] Disabling FLupdate v2.6
+[16:27:08] [Server thread/INFO]: [FLupdate] FLupdate now disabled.
+[16:27:08] [Server thread/INFO]: Saving players
+[16:27:08] [Server thread/INFO]: Saving worlds
+[16:27:08] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world' in 0,21s
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'world'
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'world'
+[16:27:08] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0,14s
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'world_nether'
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'world_nether'
+[16:27:08] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0,02s
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'world_the_end'
+[16:27:08] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'world_the_end'
+[16:27:08] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[16:27:08] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[16:27:08] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[16:27:08] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[16:27:08] [Server thread/INFO]: Waiting for I/O tasks to complete...
+[16:27:08] [Server thread/INFO]: All I/O tasks to complete
+[16:27:08] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of worker pool for up to 60s...
+[16:27:08] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of I/O pool for up to 60s...

@@ -163,3 +163,6 @@ Les fichiers `pom.xml` ont été **conservés** pour référence :
 - [Paper NMS Maven Plugin (tiers)](https://github.com/Alvinn8/paper-nms-maven-plugin)
 - [PaperMC Documentation Officielle](https://docs.papermc.io/paper/dev/)
 - [Projet Original FarLandsAgain](https://github.com/OtakuMegane/FarLandsAgain) (archivé, supporte jusqu'à 1.18)
+
+
+[LogBuild](LOGBUILD/log1)
